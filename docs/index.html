@@ -10,6 +10,8 @@
     <meta name="keywords" content="aroz, proxy, networking, open source, software">
     <meta name="author" content="aroz.org">
 
+    <link rel="icon" href="img/favicon.png" type="image/png">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="aroz.org">
     <meta property="og:description" content="Open Source Software Built Around People">
@@ -22,6 +24,7 @@
 
     <!-- Semantic UI CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- AOS.js CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -34,62 +37,228 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans+TC:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: "Quicksand", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 300;
-            font-style: normal;
-        }
-
-        h1, h2, h3{
-            font-weight: 300 !important;
-        }
-
-        h4, h5, h6{
-            font-weight: 300;
-        }
-
-        /* Apply Noto Sans for Chinese text */
-        :lang(zh) {
-            font-family: "Noto Sans TC", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        /* Apply MIUI font for Japanese text */
-        :lang(ja) {
-            font-family: "M PLUS Rounded 1c", serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-    </style>
+    <!-- Cursor -->
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    
+    <!-- dom-i18n.js CDN -->
+    <!-- <script src="./js/dom-i18n.min.js"></script> -->
+    <script src="https://os.aroz.org/dom-i18n.min.js"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <br><br><br><br>
     <div class="ui container">
-        <h1 class="ui header" data-aos="fade-up">Welcome to aroz.org</h1>
+        <!-- Desktop Menu -->
         <br>
-        <p>This site is a work in progress. For projects details, visits</p>
-        <div class="ui list">
-            <div class="item">ArozOS: <a href="https://os.aroz.org">Details</a></div>
-            <div class="item">Zoraxy: <a href="https://zoraxy.aroz.org">Details</a></div>
-            <div class="item">Github: <a href="https://github.com/aroz-online">Details</a></div>
+        <div class="ui secondary basic menu" style="font-size: 1.2em;">
+            <a class="item" href="https://aroz.org">
+                aroz.org
+            </a>
+            <div class="right menu"></div>
+            <div class="ui simple dropdown item">
+                Language
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" onclick="i18n.changeLanguage('en'); savePreferedLang('en');">English</div>
+                    <div class="item" onclick="i18n.changeLanguage('de'); savePreferedLang('de');">Deutsch</div>
+                    <div class="item" onclick="i18n.changeLanguage('ja'); savePreferedLang('ja');">日本語</div>
+                    <div class="item" onclick="i18n.changeLanguage('zh'); savePreferedLang('zh');">中文</div>
+                </div>
+            </div>
+                <a class="item" style="font-size: 0.8em !important; "href="https://github.com/aroz-online" target="_blank"><i class="ui github icon"></i> GitHub</a>
+            </div>
         </div>
-     
+        <br>
+    </div>
+    <br>
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="eight wide column" style="display: flex; align-items: center;">
+                <div class="ui text container">
+                <div class="ui basic segment">
+                    <h1 class="ui header" i18n style="font-size: 3em;" data-aos="fade-up">
+                    Open Source Software Built Around People // Open-Source-Software, die sich um Menschen dreht // 人々を中心に構築されたソフトウェア // 以人為本的開源軟體
+                    </h1>
+                    <p i18n style="font-size: 1.5em;" data-aos="fade-up" data-aos-delay="100">
+                        aroz.org is a community of developers who value user experience and design in open source software.
+                         // aroz.org ist eine Gemeinschaft von Entwicklern, die Benutzererfahrung und Design in Open-Source-Software schätzen.
+                         // aroz.orgは、オープンソースソフトウェアにおいてユーザーエクスペリエンスとデザインを重視する開発者のコミュニティです。
+                         // aroz.org是一個重視用戶體驗和設計的開源軟體社群
+                    </p>
+                    <br>
+                    <button i18n class="ui basic black button" onclick="scrollToContent()" data-aos="fade-up" data-aos-delay="200">Learn More // Mehr erfahren // もっと詳しく // 了解更多</button>
+                </div>
+                </div>
+            </div>
+            <div class="eight wide column">
+                <img src="img/banner.jpg" class="bannerImage" data-aos="fade-left">
+                <div style="background-image: url('img/background-image.jpg'); background-size: cover; background-position: center; height: 100%;"></div>
+            </div>
+        </div>
+
+        <br>
+        <div class="ui divider"></div>
+        <br>
+
+        <div id="aboutAroz">
+            <div class="ui container">
+                <div class="ui stackable grid">
+                    <div class="sixteen wide column">
+                        <h2 class="ui header" i18n>About aroz.org Projects // Über aroz.org Projekte // aroz.org プロジェクトについて // 關於 aroz.org 之開源專案</h2>
+                        <p style="font-size: 1.2em;" i18n>
+                            aroz.org, previously known as arozos.com, is the home of various open source projects spun off from ArozOS, the primary NAS OS originally designed for DIY NAS servers. With the help of university students, developers, and networking professionals all over the globe, we have been able to create several well-known projects.
+                            // aroz.org, früher bekannt als arozos.com, ist die Heimat verschiedener Open-Source-Projekte, die aus ArozOS hervorgegangen sind, dem ursprünglich für DIY NAS-Server konzipierten primären NAS-Betriebssystem. Mit Hilfe von Universitätsstudenten, Entwicklern und Netzwerkprofis auf der ganzen Welt konnten wir mehrere bekannte Projekte erstellen.
+                            // aroz.orgは、もともとDIY NASサーバー向けに設計された主要なNAS OSであるArozOSから派生したさまざまなオープンソースプロジェクトのホームです。世界中の大学生、開発者、ネットワーク専門家の助けを借りて、いくつかの有名なプロジェクトを作成することができました。
+                            // aroz.org，以前稱為arozos.com，是各種 UX First 開源專案的啟發地，這些專案是從最初為 DIY NAS 伺服器設計的 NAS OS - ArozOS中分支出來的。在全球各地的大學生、開發人員和網絡專業人士的幫助下，我們已經創建了幾個知名專案。
+                        </p>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="ui divider"></div>
+        <br>
+        <div id="projects">
+            <div class="ui stackable grid">
+                <div class="six wide column">
+                    <img src="projects/zoraxy.png" style="width: 100%; height: 100%; object-fit: cover;  border-radius: 1em;">
+                    <div style="background-image: url('img/background-image.jpg'); background-size: cover; background-position: center; height: 100%;"></div>
+                </div>
+                <div class="ten wide column" style="display: flex; align-items: center;">
+                    <div class="ui text container">
+                    <div class="ui basic segment">
+                        <h2 class="ui header">
+                        Zoraxy
+                        </h2>
+                        <p style="font-size: 1.2em;" i18n>
+                            Zoraxy is an ultimate toolbox for your homelab, including a reverse proxy server, up-time monitoring, network tools, and more.
+                            // Zoraxy ist ein ultimatives Werkzeugkasten für Ihr Homelab, einschließlich eines Reverse-Proxy-Servers, Up-Time-Überwachung, Netzwerktools und mehr.
+                            // Zoraxyは、リバースプロキシサーバー、アップタイム監視、ネットワークツールなど、ホームラボ用の究極のツールボックスです。
+                            // Zoraxy是您 Homelab 的便利工具箱，包括反向代理服務器、正常運行時間監控、網絡工具等功能。
+                        </p>
+                        <br>
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui black button" onclick="window.open('https://github.com/tobychui/zoraxy', '_blank')">
+                                <i class="github icon"></i> Star
+                            </div>
+                            <a class="ui basic black left pointing label" id="zoraxy-star-count">
+                                0
+                            </a>
+                        </div>
+                        <a class="ui basic black button" href="https://zoraxy.aroz.org"> <i class="ui external icon"></i> <span i18n>Visit Homepage // Homepage besuchen // ホームページを訪問する // 開啟主頁</span></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui stackable grid">
+                <div class="six wide column">
+                    <img src="projects/arozos.png" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1em;">
+                    <div style="background-image: url('img/background-image.jpg'); background-size: cover; background-position: center; height: 100%;"></div>
+                </div>
+                <div class="ten wide column" style="display: flex; align-items: center;">
+                    <div class="ui text container">
+                    <div class="ui basic segment">
+                        <h2 class="ui header">
+                        ArozOS
+                        </h2>
+                        <p style="font-size: 1.2em;" i18n>
+                            ArozOS is an OS-like web-desktop interface that allows you to access your files and applications from anywhere.
+                            // ArozOS ist eine OS-ähnliche Web-Desktop-Oberfläche, mit der Sie von überall auf Ihre Dateien und Anwendungen zugreifen können.
+                            // ArozOSは、どこからでもファイルやアプリケーションにアクセスできるOSのようなWebデスクトップインターフェースです。
+                            // ArozOS是一個類似作業系統的 Web 桌面界面，可讓您從任何地方訪問您的文件和應用程序。
+                        </p>
+                        <br>
+                        <div class="ui labeled button" tabindex="0">
+                            <div class="ui black button" onclick="window.open('https://github.com/tobychui/arozos', '_blank')">
+                                <i class="github icon"></i> Star
+                            </div>
+                            <a class="ui basic black left pointing label" id="aroz-star-count">
+                                0
+                            </a>
+                        </div>
+                        <a class="ui basic black button" href="https://os.aroz.org"> <i class="ui external icon"></i> <span i18n>Visit Homepage // Homepage besuchen // ホームページを訪問する // 開啟主頁</span></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui container">
         <br>
         <div class="ui divider"></div>
         Copyright &copy; aroz.org and its authors, 2018 - <span class="year">2020</span>
     </div>
 
-    <!-- Initialize AOS -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/kursor"></script>
     <script>
+
+        let languageCodeToName = {
+            'en': 'English',
+            'de': 'Deutsch',
+            'ja': '日本語',
+            'zh': '中文'
+        }
+
+        function scrollToContent() {
+            $('html, body').animate({
+                scrollTop: $('#projects').offset().top
+            }, 1000);
+        }
+
+        $(".ui.dropdown").dropdown();
+
+        //Load stars of the project
+        $.get('https://api.github.com/repos/tobychui/arozos', function(data) {
+            $('#aroz-star-count').text(data.stargazers_count);
+        });
+
+        $.get('https://api.github.com/repos/tobychui/zoraxy', function(data) {
+            $('#zoraxy-star-count').text(data.stargazers_count);
+        });
+
+        //Initialize AOS
         AOS.init();
 
         // Update year
         $('.year').text(new Date().getFullYear());
 
+        // Initialize kursor
+        new kursor({
+            removeDefaultCursor: true,
+            type: 4
+        })
+
+        //Initiate localizations
+        var i18n = window.domI18n({
+            selector: '[i18n]',
+            separator: ' // ',
+            languages: ['en', 'de', 'ja', 'zh'],
+            defaultLanguage: 'en'
+        });
+
+        //Load prefered language from localstorage
+        $(document).ready(function() {
+            var lang = localStorage.getItem('lang');
+            if (lang != null) {
+                i18n.changeLanguage(lang);
+                //Set the dropdown to the selected language
+                $('.ui.dropdown').dropdown('set selected', languageCodeToName[lang]);
+            }else{
+                i18n.changeLanguage('en');
+            }
+
+            //Change dropdown text to language name
+            $('.ui.dropdown').dropdown('set selected', languageCodeToName[lang]);
+        });
+     
+
+        //Save prefered language into localstorage
+        function savePreferedLang(lang) {
+            localStorage.setItem('lang', lang);
+        }
     </script>
 </body>
 </html>

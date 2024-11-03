@@ -1,0 +1,69 @@
+
+body {
+    font-family: "Quicksand", "Noto Sans TC", "M PLUS Rounded 1c", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+h1, h2, h3{
+    font-weight: 300 !important;
+    font-family: "Quicksand","Noto Sans TC", "M PLUS Rounded 1c",  sans-serif !important;
+}
+
+h2{
+    font-size: 2.5em !important;
+}
+
+h4, h5, h6{
+    font-weight: 300 !important;
+    font-family: "Quicksand","Noto Sans TC", "M PLUS Rounded 1c",  sans-serif !important;
+}
+
+p{
+    font-weight: lighter;
+    font-family: "Quicksand","Noto Sans TC", "M PLUS Rounded 1c",  sans-serif !important;
+}
+
+/* Apply Noto Sans for Chinese text */
+:lang(zh) {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Apply MIUI font for Japanese text */
+:lang(ja) {
+    font-family: "M PLUS Rounded 1c", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bannerTextWrapper{
+    padding: 1.2em;
+    padding-left: 3em;
+}
+
+.themebg{
+    --s: 50px; /* control the size*/
+    --c1: #f8f8f8;
+    --c2: #ffffff;
+    
+    --_g: #0000 90deg,var(--c1) 0;
+    background: 
+      conic-gradient(from 90deg at 2px 2px,var(--_g)),
+      conic-gradient(from 90deg at 1px 1px,var(--_g)),
+      var(--c2);
+    background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+}
+
+
+.bannerImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    user-select: none;
+    pointer-events: none;
+}
